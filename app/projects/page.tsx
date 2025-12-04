@@ -7,7 +7,6 @@ import Image from "next/image";
 export default function ProjectsPage() {
   return (
     <main className="min-h-screen bg-neutral-950 text-white p-8">
-      {/* En-tête */}
       <div className="max-w-6xl mx-auto mb-8 flex items-center justify-between">
         <h1 className="text-4xl font-bold">Tous mes projets</h1>
         <Link
@@ -18,16 +17,14 @@ export default function ProjectsPage() {
         </Link>
       </div>
 
-      {/* La Grille */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project) => (
           <Link href={`/projects/${project.id}`} key={project.id}>
             <Card className="group h-[300px] flex flex-col justify-end p-0 overflow-hidden cursor-pointer border border-neutral-800 hover:border-green-500/50 transition-all">
-              {/* 📸 IMAGE DE FOND (Au lieu de la vidéo) */}
               <div className="absolute inset-0 bg-neutral-900">
                 {project.listecapture && project.listecapture.length > 0 ? (
                   <Image
-                    src={project.listecapture[0]} // On prend la 1ère image
+                    src={project.listecapture[0]}
                     alt={project.title}
                     fill
                     className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
@@ -39,7 +36,6 @@ export default function ProjectsPage() {
                 )}
               </div>
 
-              {/* Contenu textuel */}
               <div className="relative z-10 p-6 bg-gradient-to-t from-black via-black/80 to-transparent w-full">
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-xs font-mono text-green-400 border border-green-400/30 px-2 py-1 rounded">

@@ -2,71 +2,145 @@ import Card from "@/app/components/ui/Cards";
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/data/projects";
+
 const MY_IMAGE = "/assets/monvisage.png";
+
+// --- DONNÉES DES ICÔNES DE LA STACK ---
+const stackData = [
+  // Front
+  { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", className: "invert" },
+  { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+  { name: "Tailwind", icon: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" },
+  { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+  { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+  // Back & Langages
+  { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+  { name: "Golang", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg" },
+  { name: "PHP", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+  { name: "C#", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
+   // Data & Outils
+  { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+  { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+  { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+  { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+];
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-neutral-950 text-white p-4 md:p-8 flex items-center justify-center">
-      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[180px]">
-        <Card className="md:col-span-2 md:row-span-2 flex flex-row justify-between group overflow-hidden">
-          {/* Partie Texte : prend 50% de la largeur (w-1/2) et un peu de padding */}
-          <div className="z-10 w-1/2 p-2 flex flex-col justify-center">
-            <h1 className="text-xl md:text-4xl font-bold mb-2">
+      {/* Grid container */}
+      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-min md:auto-rows-[180px]">
+        
+        {/* --- LIGNE 1 : PROFIL et STACK --- */}
+
+        {/* BLOC PROFIL (Haut Gauche - 2x2) */}
+        <Card className="md:col-span-2 md:row-span-2 flex flex-row justify-between group overflow-hidden min-h-[300px] md:min-h-0">
+          <div className="z-10 w-1/2 p-4 flex flex-col justify-center">
+            <h1 className="text-2xl md:text-4xl font-bold mb-2">
               Théo CHAUVIERE
             </h1>
-            <p className="text-xs md:text-base text-neutral-400">
+            <p className="text-sm md:text-base text-neutral-400">
               Étudiant à ESAIP Ecole d'Ingénieur Informatique
             </p>
-            <p className="text-xs md:text-base text-neutral-600">
+            <p className="text-sm md:text-base text-neutral-600">
               en 3ème année
             </p>
           </div>
-
-          {/* Partie Image : prend 50% de la largeur (w-1/2) et toute la hauteur disponible */}
-          <div className="relative w-1/2 h-auto min-h-[150px] md:h-full rounded-2xl overflow-hidden">
+          <div className="relative w-1/2 h-full rounded-2xl overflow-hidden my-2 mr-2">
             <Image
               src={MY_IMAGE}
               alt="Théo"
               fill
-              // J'ai gardé ton object-center pour centrer le visage
-              className="object-cover object-[center_30%] group-hover:scale-105 transition-transform duration-500"
+              className="object-cover object-[center_30%] group-hover:scale-105 transition-transform duration-500 rounded-xl"
             />
           </div>
         </Card>
 
-        <Link
-          href="https://www.linkedin.com/in/th%C3%A9o-chauviere-68b3002aa/"
-          target="_blank"
-          className="w-full"
-        >
-          <Card className="flex flex-col items-center justify-center gap-2 hover:bg-[#0077b5]/20 cursor-pointer transition-colors h-full w-full">
-            <h2 className="font-bold text-xl">LinkedIn</h2>
+        {/* BLOC STACK (Haut Droite - 2x2) */}
+        {/* J'ai changé p-6 en p-4 et gap-4 en gap-2 pour gagner de la place */}
+        <Card className="md:col-span-2 md:row-span-2 p-4 flex flex-col gap-2 min-h-[300px] md:min-h-0">
+          <h3 className="font-bold text-xl border-b border-neutral-800 pb-2 mb-1">
+            Ma Stack Technique
+          </h3>
+          <div className="grid grid-cols-4 gap-2 h-full content-center flex-1">
+            {stackData.map((tech) => (
+               <div key={tech.name} className="flex flex-col items-center justify-center gap-1 group select-none">
+                  {/* J'ai réduit un peu la taille de l'image (w-8 h-8) */}
+                  <div className="relative w-8 h-8 md:w-9 md:h-9 transition-transform duration-300 group-hover:-translate-y-1">
+                    <img 
+                      src={tech.icon} 
+                      alt={tech.name} 
+                      className={`object-contain w-full h-full ${tech.className || ''}`} 
+                    />
+                  </div>
+                  <span className="text-[10px] text-neutral-500 group-hover:text-neutral-200 transition-colors text-center font-medium">
+                    {tech.name}
+                  </span>
+               </div>
+            ))}
+          </div>
+        </Card>
+
+        {/* --- MILIEU : LIENS et TDF (Le Décalage) --- */}
+        
+        {/* LinkedIn (Milieu Gauche - 1x1) */}
+        <Link href="https://www.linkedin.com/in/th%C3%A9o-chauviere-68b3002aa/" target="_blank" className="w-full md:h-[180px]">
+          <Card className="flex flex-col items-center justify-center gap-2 hover:bg-[#0077b5]/20 cursor-pointer transition-colors h-full w-full py-6 md:py-0">
+            <h2 className="font-bold text-lg">LinkedIn</h2>
             <p className="text-xs text-neutral-400">Connectons-nous</p>
           </Card>
         </Link>
 
-        <Link
-          href="https://github.com/Odaxty"
-          className="w-full"
-          target="_blank"
-        >
-          <Card className="flex flex-col items-center justify-center gap-2 hover:bg-white/10 cursor-pointer w-full h-full">
-            <h2 className="font-bold text-xl">GitHub</h2>
+        {/* GitHub (Milieu Gauche - 1x1) */}
+        <Link href="https://github.com/Odaxty" target="_blank" className="w-full md:h-[180px]">
+          <Card className="flex flex-col items-center justify-center gap-2 hover:bg-white/10 cursor-pointer w-full h-full py-6 md:py-0">
+            <h2 className="font-bold text-lg">GitHub</h2>
             <p className="text-xs text-neutral-400">Voir mon code</p>
           </Card>
         </Link>
 
-        <Link href="/projects" className="md:col-span-2 md:row-span-2">
-          <Card className="h-full group cursor-pointer hover:border-green-500/50 transition-colors">
+        {/* BLOC TOUR DE FRANCE (Maintenant au Milieu Droite - 2x2) */}
+        {/* Il prend la place qu'avait le CV + l'espace en dessous */}
+        <Link href="/passions" className="md:col-span-2 md:row-span-2 group min-h-[300px] md:min-h-0">
+          <Card className="relative h-full w-full overflow-hidden flex flex-col justify-end p-6 cursor-pointer border-yellow-500/30 hover:border-yellow-500/60 transition-colors">
+            <Image
+              src="/assets/vidéos/tdf/tdf_presentation.png"
+              alt="Tour de France"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-50"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+            <div className="relative z-10 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="bg-yellow-400 text-black text-xs font-bold px-2 py-0.5 rounded">PASSION</div>
+                <div className="bg-green-600 text-white text-xs font-bold px-2 py-0.5 rounded">3700€ RÉCOLTÉS</div>
+              </div>
+              <h3 className="font-bold text-3xl leading-tight mb-2">
+                Cyclisme & <br />
+                <span className="text-yellow-400">Tour de France</span>
+              </h3>
+              <p className="text-sm text-neutral-200 opacity-90 group-hover:text-white transition-colors">
+                Un défi sportif de 4000km pour les enfants atteints de la maladie de Crohn.
+              </p>
+            </div>
+          </Card>
+        </Link>
+
+        {/* --- BAS : PROJETS et CV --- */}
+        
+        {/* BLOC PROJETS (Bas Gauche - 2x2) */}
+        {/* Il se décale naturellement sous LinkedIn/GitHub */}
+        <Link href="/projects" className="md:col-span-2 md:row-span-2 min-h-[300px] md:min-h-0">
+          <Card className="h-full group cursor-pointer hover:border-green-500/50 transition-colors relative">
             <div className="absolute m-2 inset-0 z-10 flex flex-col justify-between p-6 bg-gradient-to-t from-black/90 to-transparent">
               <div className="self-end bg-white/10 p-2 rounded-full group-hover:bg-green-500 group-hover:text-black transition-all">
                 ↗
               </div>
               <Image
-                src={
-                  projects.find((p) => (p.title = "TaskMate"))
-                    ?.listecapture[0] || ""
-                }
+                src={projects.find((p) => (p.title = "TaskMate"))?.listecapture[0] || ""}
                 alt="Image TaskMate"
                 fill
                 className="object-cover -z-10 brightness-50 group-hover:brightness-75 transition-all rounded-2xl"
@@ -76,129 +150,27 @@ export default function Home() {
                   Mes Réalisations
                 </h3>
                 <p className="text-gray-400 mt-2">
-                  Découvre l'ensemble de mes projets scolaires et personnels.
-                  <br />
-                  <span className="text-sm text-green-500 mt-2 block">
+                  <span className="text-sm text-green-500 block">
                     Voir les {projects.length} projets →
                   </span>
                 </p>
               </div>
             </div>
+          </Card>
+        </Link>
 
-            <div className="h-full w-full bg-neutral-800">
-              <video
-                src="/assets/vidéos/sublime.mp4"
-                className="h-full w-full object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
+        {/* CV (Bas Droite - 2x1 - ou 2x2 selon préférence) */}
+        {/* Il prend la place restante en bas à droite sous le TDF */}
+        <Link href="/assets/cv.pdf" target="_blank" className="w-full md:col-span-2 md:h-[180px] self-end">
+          <Card className="flex flex-row items-center justify-center gap-4 bg-green-900/10 hover:bg-green-900/20 border-green-900/30 cursor-pointer h-full w-full py-6 md:py-0">
+            <span className="text-3xl">📄</span>
+            <div>
+                 <span className="text-xl font-bold text-green-500 block">Mon CV</span>
+                 <p className="text-xs text-green-400">Télécharger le PDF</p>
             </div>
           </Card>
         </Link>
 
-        <Card className="md:row-span-2 flex flex-col gap-4 overflow-hidden">
-          <h3 className="font-bold text-lg border-b border-neutral-800 pb-2">
-            Ma Stack
-          </h3>
-
-          <div className="flex flex-col gap-3 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-neutral-700 scrollbar-track-transparent">
-            {/* FRONT END */}
-            <div>
-              <h4 className="text-neutral-500 text-xs font-bold mb-2 uppercase tracking-wider">
-                Front End
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  "React",
-                  "Next.js",
-                  "TypeScript",
-                  "Tailwind",
-                  "HTML",
-                  "CSS",
-                ].map((tech) => (
-                  <span
-                    key={tech}
-                    className="bg-neutral-800 px-2 py-1 rounded-md text-xs border border-neutral-700 text-neutral-300"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* BACK END / LANGAGES */}
-            <div>
-              <h4 className="text-neutral-500 text-xs font-bold mb-2 uppercase tracking-wider">
-                Back End & Langages
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  "Node.js",
-                  "Java",
-                  "Golang",
-                  "Python",
-                  "PHP",
-                  "C#",
-                  "Kotlin",
-                ].map((tech) => (
-                  <span
-                    key={tech}
-                    className="bg-neutral-800 px-2 py-1 rounded-md text-xs border border-neutral-700 text-neutral-300"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* DATABASE */}
-            <div>
-              <h4 className="text-neutral-500 text-xs font-bold mb-2 uppercase tracking-wider">
-                Data
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {["MySQL", "MongoDB", "SQL Server", "SQL"].map((tech) => (
-                  <span
-                    key={tech}
-                    className="bg-neutral-800 px-2 py-1 rounded-md text-xs border border-neutral-700 text-neutral-300"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* OUTILS */}
-            <div>
-              <h4 className="text-neutral-500 text-xs font-bold mb-2 uppercase tracking-wider">
-                Outils
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {["Git", "VS Code", "JetBrains", "Linux"].map((tech) => (
-                  <span
-                    key={tech}
-                    className="bg-neutral-800 px-2 py-1 rounded-md text-xs border border-neutral-700 text-neutral-300"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </Card>
-
-        <Card className="flex flex-col items-center justify-center hover:rotate-3 transition-transform">
-          <span className="text-4xl">🚴‍♂️</span>
-          <p className="mt-2 font-medium text-sm">Cyclisme</p>
-        </Card>
-        <Link href="/assets/cv.pdf" target="_blank" className="w-full">
-          <Card className="flex flex-col items-center justify-center bg-green-900/10 hover:bg-green-900/20 border-green-900/30 cursor-pointer h-full w-full">
-            <span className="text-2xl font-bold text-green-500">CV</span>
-            <p className="text-xs text-green-400 mt-1">Télécharger</p>
-          </Card>
-        </Link>
       </div>
     </main>
   );
