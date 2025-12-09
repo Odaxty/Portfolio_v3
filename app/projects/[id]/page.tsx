@@ -7,7 +7,7 @@ import { useLanguage } from "@/app/context/LanguageContext"; // 👈 Import
 export default function ProjectDetail() {
   const params = useParams();
   const id = Number(params.id);
-  const { projects, t } = useLanguage(); // 👈 On récupère la liste correcte (FR ou EN)
+  const { projects, t } = useLanguage(); 
   
   const project = projects.find((p: any) => p.id === id);
 
@@ -88,7 +88,7 @@ export default function ProjectDetail() {
             {project.video && (
               <div className="mt-6">
                 <a href={project.video} target="_blank" className="flex items-center justify-center gap-2 w-full py-4 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition-all shadow-lg hover:shadow-red-900/20">
-                  <span>▶️</span> {t.demo}
+                  <span></span> {t.demo}
                 </a>
               </div>
             )}
@@ -96,7 +96,7 @@ export default function ProjectDetail() {
             {project.lien && (
               <div className="mt-4">
                 <a href={project.lien} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-900/20">
-                  <span>🌐</span> {t.access}
+                  <span></span> {t.access}
                 </a>
               </div>
             )}
