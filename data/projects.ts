@@ -9,7 +9,7 @@ export interface Project {
   duration?: string;
   team?: string;
   context?: string;
-  features?: { name: string; phase?: string }[];
+  features?: { name: string}[];
   video?: string;
   lien?: string;
 }
@@ -42,7 +42,7 @@ export const projects: Project[] = [
       { name: "Gestion des favoris et historique des conversations" },
     ],
     video: "https://youtu.be/-BwSeVp0CjQ",
-    lien: "http://taskmate-theo.duckdns.org/",
+    lien: "http://taskmate-theo.duckdns.org:5000/",
   },
   {
     id: 2,
@@ -98,13 +98,12 @@ export const projects: Project[] = [
     context:
       "Projet intensif de création de marque de A à Z. Gestion de toute la chaîne de valeur, du design à l'architecture de la base de données.",
     features: [
-      { name: "Conception de l'interface utilisateur", phase: "Semaine 1 à 2" },
+      { name: "Conception de l'interface utilisateur" },
       {
         name: "Gestion des utilisateurs (Inscription/Connexion)",
-        phase: "Semaine 2 à 4",
       },
-      { name: "Catalogue produits & Panier", phase: "Semaine 4 à 6" },
-      { name: "Panel Administrateur & Gestion des commandes", phase: "Semaine 6 à 8" },
+      { name: "Catalogue produits & Panier"},
+      { name: "Panel Administrateur & Gestion des commandes"},
     ],
     video: "https://www.youtube.com/watch?v=tio-Nz5ymWg",
   },

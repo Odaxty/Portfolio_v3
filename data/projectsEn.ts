@@ -42,7 +42,7 @@ export const projectsEn: Project[] = [
       { name: "Favorites management and conversation history" },
     ],
     video: "https://youtu.be/-BwSeVp0CjQ",
-    lien: "http://taskmate-theo.duckdns.org/",
+    lien: "http://taskmate-theo.duckdns.org:5000/",
   },
   {
     id: 2,
