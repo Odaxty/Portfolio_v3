@@ -1,9 +1,8 @@
 "use client";
 import { createContext, useContext, useState, ReactNode } from "react";
-import { projects } from "@/data/projects";       // Tes données FR
-import { projectsEn } from "@/data/projectsEn";   // Tes données EN
+import { projects } from "@/data/projects";       
+import { projectsEn } from "@/data/projectsEn";   
 
-// Petit dictionnaire pour les textes fixes de l'interface (Boutons, titres...)
 const uiTranslations = {
   fr: {
     role: "Étudiant à ESAIP Ecole d'Ingénieur Informatique",
@@ -49,13 +48,11 @@ const uiTranslations = {
   }
 };
 
-// Création du contexte
 const LanguageContext = createContext<any>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<"fr" | "en">("fr");
 
-  // La magie opère ici : on renvoie la liste FR ou EN selon l'état
   const currentProjects = lang === "fr" ? projects : projectsEn;
   const t = uiTranslations[lang];
 
@@ -68,5 +65,4 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   );
 }
 
-// Le hook pour utiliser ça dans tes pages
 export const useLanguage = () => useContext(LanguageContext);

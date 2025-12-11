@@ -2,7 +2,7 @@
 import Card from "@/app/components/ui/Cards";
 import Image from "next/image";
 import Link from "next/link";
-import { useLanguage } from "@/app/context/LanguageContext"; // 👈 Import du hook
+import { useLanguage } from "@/app/context/LanguageContext"; 
 
 const MY_IMAGE = "/assets/monvisage.png";
 
@@ -26,12 +26,11 @@ const stackData = [
 ];
 
 export default function Home() {
-  const { t, projects, toggleLanguage, lang } = useLanguage(); // 👈 On récupère tout ici
+  const { t, projects, toggleLanguage, lang } = useLanguage(); 
 
   return (
     <main className="min-h-screen bg-neutral-950 text-white p-4 md:p-8 flex items-center justify-center relative">
       
-      {/* BOUTON LANGUE */}
       <button onClick={toggleLanguage} className="absolute top-4 right-4 z-50 bg-white/10 px-4 py-2 rounded-full font-bold hover:bg-white/20 transition">
         {lang === 'fr' ? '🇬🇧 EN' : '🇫🇷 FR'}
       </button>

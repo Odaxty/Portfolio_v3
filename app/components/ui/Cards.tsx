@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-// Fonction utilitaire pour fusionner les classes proprement
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }

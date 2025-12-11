@@ -2,10 +2,10 @@
 import Card from "@/app/components/ui/Cards";
 import Link from "next/link";
 import Image from "next/image";
-import { useLanguage } from "@/app/context/LanguageContext"; // 👈 Import
+import { useLanguage } from "@/app/context/LanguageContext";
 
 export default function ProjectsPage() {
-  const { projects, t } = useLanguage(); // 👈 On récupère les projets dynamiques
+  const { projects, t } = useLanguage(); 
 
   return (
     <main className="min-h-screen bg-neutral-950 text-white p-8">

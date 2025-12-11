@@ -147,7 +147,7 @@ export const projects: Project[] = [
       "Agent intelligent automatisé qui compile et envoie un résumé de l'actualité Tech en se basant sur Google News.",
     tech: ["n8n", "Gemini API", "Automation", "RSS"],
     year: "3ème année Esaip",
-    listecapture: [],
+    listecapture: ["/assets/vidéos/n8n/n8n.png"],
     duration: "1 mois",
     team: "Individuel",
     context:

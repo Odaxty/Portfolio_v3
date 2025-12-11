@@ -9,7 +9,6 @@ interface CarouselProps {
 }
 
 export default function Carousel({ images }: CarouselProps) {
-  // On configure le carrousel : boucle infinie + Autoplay (délai 4 secondes)
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 4000, stopOnInteraction: false })
   ])
@@ -18,17 +17,16 @@ export default function Carousel({ images }: CarouselProps) {
 
   return (
     <div className="relative w-full h-full overflow-hidden bg-neutral-900" ref={emblaRef}>
-      <div className="flex h-full"> {/* h-full est important ici */}
+      <div className="flex h-full"> 
         {images.map((src, index) => (
           <div className="flex-[0_0_100%] min-w-0 relative h-full" key={index}>
             <Image 
               src={src} 
               alt={`Slide ${index + 1}`} 
               fill 
-              className="object-cover" // L'image remplit tout le cadre sans se déformer
-              priority={index === 0} // Charge la 1ère image en priorité
+              className="object-cover" 
+              priority={index === 0} 
             />
-            {/* Petit filtre sombre sur l'image pour que le texte reste lisible */}
             <div className="absolute inset-0 bg-black/20" />
           </div>
         ))}

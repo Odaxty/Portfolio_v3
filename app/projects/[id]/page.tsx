@@ -2,12 +2,12 @@
 import Link from "next/link";
 import Carousel from "@/app/components/ui/Carousel";
 import { useParams } from "next/navigation";
-import { useLanguage } from "@/app/context/LanguageContext"; // 👈 Import
+import { useLanguage } from "@/app/context/LanguageContext";
 
 export default function ProjectDetail() {
   const params = useParams();
   const id = Number(params.id);
-  const { projects, t } = useLanguage(); // 👈 On récupère la liste correcte (FR ou EN)
+  const { projects, t } = useLanguage(); 
   
   const project = projects.find((p: any) => p.id === id);
 

@@ -2,10 +2,10 @@
 import Card from "@/app/components/ui/Cards";
 import Image from "next/image";
 import Link from "next/link";
-import { useLanguage } from "@/app/context/LanguageContext"; // 1. On importe le hook
+import { useLanguage } from "@/app/context/LanguageContext"; 
 
 export default function Passions() {
-  const { lang } = useLanguage(); // 2. On récupère la langue actuelle
+  const { lang } = useLanguage(); 
 
   const t = {
     fr: {
@@ -54,7 +54,6 @@ export default function Passions() {
     <main className="min-h-screen bg-neutral-950 text-white p-4 md:p-8 flex justify-center">
       <div className="max-w-5xl w-full flex flex-col gap-6">
         
-        {/* HEADER */}
         <div className="mb-4">
           <Link href="/" className="text-neutral-400 hover:text-white text-sm mb-4 inline-block">
             {t.back}
@@ -69,7 +68,6 @@ export default function Passions() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           
-          {/* CARTE VÉLO */}
           <Card className="md:col-span-2 flex flex-col justify-center p-6 relative overflow-hidden group min-h-[200px]">
             <div className="absolute inset-0 z-0">
                <div className="w-full h-full bg-neutral-800 opacity-50" /> 
@@ -77,7 +75,6 @@ export default function Passions() {
             <div className="relative z-10">
               <h2 className="text-2xl font-bold mb-2">{t.cycling_title}</h2>
               
-              {/* Traduction avec mise en forme (Gras) gérée ici */}
               <p className="text-neutral-300 mb-4 max-w-lg">
                 {lang === 'fr' ? (
                    <>Que ce soit en <strong>Gravel</strong> pour l'aventure, en <strong>VTT</strong> pour les sensations ou sur <strong>Route</strong> pour la performance. Le vélo est mon moyen de décompresser et de me dépasser.</>
@@ -94,7 +91,6 @@ export default function Passions() {
             </div>
           </Card>
 
-          {/* CARTE GAMING */}
           <Card className="flex flex-col justify-center p-6 bg-purple-900/10 border-purple-500/20 hover:bg-purple-900/20 transition-colors">
             <span className="text-4xl mb-3">🎮</span>
             <h2 className="text-xl font-bold mb-1">Gaming</h2>
@@ -104,7 +100,6 @@ export default function Passions() {
           </Card>
         </div>
 
-        {/* SECTION TDF */}
         <section className="mt-8">
           <div className="flex items-center gap-3 mb-6">
             <h2 className="text-3xl font-bold">{t.tdf_title}</h2>
@@ -113,7 +108,6 @@ export default function Passions() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-min">
             
-            {/* STATS */}
             <Card className="flex flex-col items-center justify-center p-4 bg-neutral-900">
               <span className="text-3xl font-bold text-green-500">3 969 km</span>
               <span className="text-neutral-400 text-xs uppercase tracking-wider">{t.stats_km}</span>
@@ -131,11 +125,9 @@ export default function Passions() {
               <span className="text-neutral-400 text-xs uppercase tracking-wider">{t.stats_stages}</span>
             </Card>
 
-            {/* HISTOIRE */}
             <Card className="md:col-span-2 md:row-span-2 p-6 flex flex-col gap-4">
               <h3 className="text-xl font-bold text-white">{t.why_title}</h3>
               
-              {/* Paragraphes avec mise en forme conditionnelle */}
               <p className="text-neutral-300 text-sm leading-relaxed">
                 {lang === 'fr' ? (
                   <>Diagnostiqué de la <strong>maladie de Crohn à 13 ans</strong>, j'ai voulu prouver que la maladie n'est pas une fatalité.</>
@@ -158,7 +150,6 @@ export default function Passions() {
               </div>
             </Card>
 
-            {/* PRESSE */}
             <Card className="md:col-span-2 md:row-span-2 p-6 relative overflow-hidden">
                <div className="absolute top-0 right-0 p-4 opacity-10 text-9xl">📰</div>
                <h3 className="text-xl font-bold mb-4 relative z-10">{t.impact_title}</h3>
@@ -190,7 +181,6 @@ export default function Passions() {
           </div>
         </section>
 
-        {/* FOOTER */}
         <div className="flex flex-col md:flex-row gap-4 mt-8">
             <Link href="https://www.instagram.com/rideforcrohn" target="_blank" className="flex-1">
                 <Card className="p-4 flex items-center justify-center gap-2 hover:bg-pink-900/20 cursor-pointer border-pink-900/30 transition-colors">
