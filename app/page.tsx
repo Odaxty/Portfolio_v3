@@ -82,7 +82,7 @@ export default function Home() {
 
         <Link href="/passions" className="md:col-span-2 md:row-span-2 group min-h-[300px] md:min-h-0">
           <Card className="relative h-full w-full overflow-hidden flex flex-col justify-end p-6 cursor-pointer border-yellow-500/30 hover:border-yellow-500/60 transition-colors">
-            <Image src="/assets/vidéos/tdf/carte_polarstep.png" alt="Tour de France" fill className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-50" />
+            <Image src="/assets/videos/tdf/carte_polarstep.png" alt="Tour de France" fill className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-50" />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
             <div className="relative z-10 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
               <div className="flex items-center gap-2 mb-2">
