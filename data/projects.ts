@@ -82,6 +82,33 @@ export const projects: Project[] = [
     lien: "https://mini-jeu-soiree.onrender.com/",
   },
   {
+    id: 10,
+    title: "MétéoBento",
+    category: "web",
+    description:
+      "Application météo moderne au design Bento qui change d'ambiance visuelle selon les conditions climatiques. Intègre la géolocalisation, des prévisions détaillées et une installation PWA native sur mobile.",
+    tech: ["Vue.js", "Tailwind CSS", "WeatherAPI", "PWA", "Vite"],
+    year: "3ème année Esaip",
+    listecapture: [
+      "/assets/videos/meteo/1.png",
+      "/assets/videos/meteo/2.png",
+      "/assets/videos/meteo/3.png",
+      "/assets/videos/meteo/4.png",
+    ],
+    duration: "2 semaines",
+    team: "Individuel",
+    context:
+      "Projet personnel visant à créer une expérience utilisateur fluide (UX/UI) tout en maîtrisant le framework Vue.js, l'appel d'API et la transformation en Progressive Web App.",
+    features: [
+      { name: "Interface Bento adaptative (Couleurs dynamiques selon la météo)" },
+      { name: "Géolocalisation et recherche de villes mondiale" },
+      { name: "Installation PWA (Ajout sur l'écran d'accueil)" },
+      { name: "Affichage temps réel et prévisions sur 5 jours" },
+    ],
+    video: "",
+    lien: "https://meteo.chauviere.eu", 
+  },
+  {
     id: 2,
     title: "Tour De France",
     category: "web",

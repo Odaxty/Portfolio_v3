@@ -19,7 +19,6 @@ export default function ProjectClient() {
 
   return (
     <main className="min-h-screen bg-neutral-950 text-white p-4 md:p-8">
-      {/* ... LE RESTE DE VOTRE JSX (Copié depuis votre ancien fichier) ... */}
       <div className="max-w-6xl mx-auto mb-6">
         <Link href="/projects" className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition-colors">
           {t.back_home}
